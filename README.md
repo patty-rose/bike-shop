@@ -1,3 +1,13 @@
+
+# At our bike shop..
+-we sell/grant/scrap multiple sizes and types of bikes
+-bikes are donated in sets of 5
+-every sale/grant/scrap decrements 1 bike until that size/type is empty
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
