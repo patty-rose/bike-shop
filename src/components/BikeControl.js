@@ -89,7 +89,7 @@ class BikeControl extends React.Component {
 
     return (
       <React.Fragment>
-        <NavBar />
+        <NavBar onAddBikeClick={this.handleAddBikeClick} onBikeListClick={this.handleBikeListClick} />
         {currentlyVisibleState}
       </React.Fragment>
     );

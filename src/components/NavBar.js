@@ -1,16 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-function NavBar(){
+function NavBar(props){
   return (
     <React.Fragment>
-      <ul>
-        <li>Bike List</li>
-        <li>Add a Bike</li>
-        <li>Processed Bike List</li>
-        <li>Bikes: NUM</li>
-      </ul>
+      <button onClick = {props.onBikeListClick}>Bike List</button>
+      <button onClick = {props.onAddBikeClick}>Add Bikes</button>
+      {/* <button onClick = {this.FUNC}>What happened to our bikes?</button> */}
+      <a>Bikes: NUM</a>
     </React.Fragment>
   );
 }
+
+NavBar.propTypes = {
+  onBikeListClick: PropTypes.func,
+  onAddBikeClick: PropTypes.func
+};
 
 export default NavBar;

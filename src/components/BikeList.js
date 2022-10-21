@@ -9,9 +9,9 @@ function BikeList(props){
       {props.bikeList.map((bike) =>
         <Bike
           whenBikeClicked = { props.onBikeSelection }
-          names={bike.names}
-          location={bike.location}
-          issue={bike.issue}
+          size={bike.size}
+          type={bike.type}
+          count={bike.count}
           id={bike.id}
           key={bike.id}/>
       )}
@@ -19,7 +19,6 @@ function BikeList(props){
   );
 }
 
-// Add propTypes for bikeList.
 BikeList.propTypes = {
   bikeList: PropTypes.array,
   onBikeSelection: PropTypes.func
