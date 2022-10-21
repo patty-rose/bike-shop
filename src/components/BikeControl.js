@@ -20,13 +20,17 @@ class BikeControl extends React.Component {
   //NavBar buttons handlers:
   handleAddBikeClick = () => {
     this.setState({
-      visibleComponent: "NewBikeForm"
+      visibleComponent: "NewBikeForm",
+      editing: false,
+      selectedBike: null
     });
   }
 
   handleBikeListClick = () => {
     this.setState({
-      visibleComponent: "BikeList"
+      visibleComponent: "BikeList",
+      editing: false,
+      selectedBike: null
     });
   }
 
