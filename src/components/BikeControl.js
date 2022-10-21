@@ -82,7 +82,7 @@ class BikeControl extends React.Component {
     } else if (this.state.selectedBike != null) {
       currentlyVisibleState = <BikeDetail bike = {this.state.selectedBike} onClickingDelete = {this.handleDeletingBike} onClickingEdit = {this.handleEditClick} />
     } else if (this.state.visibleComponent === "NewBikeForm"){
-      currentlyVisibleState = <NewBikeForm onNewBikeCreation = {this.handleADdingNewBikeToList} />
+      currentlyVisibleState = <NewBikeForm onNewBikeCreation = {this.handleAddingNewBikeToList} />
     } else {
       currentlyVisibleState = <BikeList bikeList = {this.state.mainBikeList} onBikeSelection = {this.handleChangingSelectedBike} />
     }
