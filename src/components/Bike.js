@@ -8,8 +8,8 @@ function Bike(props){
         <h3>{ props.size } -{ props.type } </h3>
         <p>{ props.count}</p>
       </div>
-      <button onClick = {props.whenSellBikeClicked}>-1</button>
-      <button onClick = {props.whenIncrementBikeCountClicked}>+1</button>
+      <button onClick = {() => props.whenSellBikeClicked(props.id)}>-1</button>
+      <button onClick = {() => props.whenIncrementBikeCountClicked(props.id)}>+1</button>
     </React.Fragment>
   )
 }

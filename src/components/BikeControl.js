@@ -53,14 +53,35 @@ class BikeControl extends React.Component {
   }
 
   handleIncrementBikeCountClick = (id) => {
-    console.log(this.state.mainBikeList);
-    console.log(id);
-    const newSelectedBike = this.state.mainBikeList.filter(bike => bike.id === id)[0];
-    console.log(newSelectedBike);
+    //isolate bike to increment count of
+    const selectedBike = this.state.mainBikeList.filter(bike => bike.id === id)[0];
+    //remember bike's original index point in order to put it back into mainBikeList in that OG spot
+    const selectedBikeIndex = this.state.mainBikeList.indexOf(selectedBike);
+
+    //create mainBikeList without selectedBike
+    const otherBikes = this.state.mainBikeList.filter(bike => bike.id !== id);
+
+    //increment slected bike's count (cannot use ++ shorthand here)
+    selectedBike.count = selectedBike.count +1;
+
+    //slice and concat the list back together with bike count incremented on selected bike. Have to use non destructive methods like slice and concat or this will not work.
+    const newMainBikeList = otherBikes.slice(0, selectedBikeIndex).concat(selectedBike).concat(otherBikes.slice(selectedBikeIndex));
+
+    //set the state's mainBikeList to our updated mainBikeList!
+    this.setState({
+      mainBikeList: newMainBikeList
+    });
   }
 
   handleSellBikeClick = (id) => {
-    console.log(this.state.mainBikeList);
+    const selectedBike = this.state.mainBikeList.filter(bike => bike.id === id)[0];
+    const selectedBikeIndex = this.state.mainBikeList.indexOf(selectedBike);
+    const otherBikes = this.state.mainBikeList.filter(bike => bike.id !== id);
+    selectedBike.count = selectedBike.count -1;
+    const newMainBikeList = otherBikes.slice(0, selectedBikeIndex).concat(selectedBike).concat(otherBikes.slice(selectedBikeIndex));
+    this.setState({
+      mainBikeList: newMainBikeList
+    });
   }
 
     //pass to Bike Detail
