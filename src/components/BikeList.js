@@ -8,6 +8,8 @@ function BikeList(props){
       <hr/>
       {props.bikeList.map((bike) =>
         <Bike
+          whenIncrementBikeCountClicked = { props.onIncrementBikeCountClicked }
+          whenSellBikeClicked = { props.onSellBikeClicked }
           whenBikeClicked = { props.onBikeSelection }
           size={bike.size}
           type={bike.type}
@@ -21,7 +23,9 @@ function BikeList(props){
 
 BikeList.propTypes = {
   bikeList: PropTypes.array,
-  onBikeSelection: PropTypes.func
+  onBikeSelection: PropTypes.func,
+  onIncrementBikeCountClicked: PropTypes.func,
+  onSellBikeClicked: PropTypes.func
 };
 
 export default BikeList;

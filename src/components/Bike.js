@@ -8,6 +8,8 @@ function Bike(props){
         <h3>{ props.size } -{ props.type } </h3>
         <p>{ props.count}</p>
       </div>
+      <button onClick = {props.whenSellBikeClicked}>-1</button>
+      <button onClick = {props.whenIncrementBikeCountClicked}>+1</button>
     </React.Fragment>
   )
 }
@@ -17,7 +19,9 @@ Bike.propTypes = {
   type : PropTypes.string,
   count : PropTypes.number,
   id : PropTypes.string,
-  whenBikeClicked: PropTypes.func
+  whenBikeClicked: PropTypes.func,
+  whenSellBikeClick: PropTypes.func,
+  whenIncrementBikeCountClick: PropTypes.func,
 };
 
 export default Bike;

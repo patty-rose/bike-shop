@@ -52,6 +52,17 @@ class BikeControl extends React.Component {
     });
   }
 
+  handleIncrementBikeCountClick = (id) => {
+    console.log(this.state.mainBikeList);
+    console.log(id);
+    const newSelectedBike = this.state.mainBikeList.filter(bike => bike.id === id)[0];
+    console.log(newSelectedBike);
+  }
+
+  handleSellBikeClick = (id) => {
+    console.log(this.state.mainBikeList);
+  }
+
     //pass to Bike Detail
   handleEditClick = () => {
     this.setState({editing: true});
@@ -88,7 +99,7 @@ class BikeControl extends React.Component {
     } else if (this.state.visibleComponent === "NewBikeForm"){
       currentlyVisibleState = <NewBikeForm onNewBikeCreation = {this.handleAddingNewBikeToList} />
     } else {
-      currentlyVisibleState = <BikeList bikeList = {this.state.mainBikeList} onBikeSelection = {this.handleChangingSelectedBike} />
+      currentlyVisibleState = <BikeList bikeList = {this.state.mainBikeList} onBikeSelection = {this.handleChangingSelectedBike} onIncrementBikeCountClicked = { this.handleIncrementBikeCountClick } onSellBikeClicked = { this.handleSellBikeClick } />
     }
 
     return (
