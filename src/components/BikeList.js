@@ -10,6 +10,8 @@ function BikeList(props){
         <Bike
           whenIncrementBikeCountClicked = { props.onIncrementBikeCountClicked }
           whenSellBikeClicked = { props.onSellBikeClicked }
+          whenScrapBikeClicked = { props.onScrapBikeClicked }
+          whenGrantBikeClicked = { props.onGrantBikeClicked }
           whenBikeClicked = { props.onBikeSelection }
           size={bike.size}
           type={bike.type}
@@ -25,7 +27,9 @@ BikeList.propTypes = {
   bikeList: PropTypes.array,
   onBikeSelection: PropTypes.func,
   onIncrementBikeCountClicked: PropTypes.func,
-  onSellBikeClicked: PropTypes.func
+  onSellBikeClicked: PropTypes.func,
+  onScrapBikeClicked: PropTypes.func,
+  onGrantBikeClicked: PropTypes.func
 };
 
 export default BikeList;

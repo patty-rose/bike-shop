@@ -13,7 +13,10 @@ class BikeControl extends React.Component {
       mainBikeList: [],
       selectedBike: null,
       editing: false,
-      visibleComponent: null
+      visibleComponent: null,
+      bikesSoldCount: 0,
+      bikesGrantedCount: 0,
+      bikesScrappedCount: 0
     }
   }
 
@@ -73,7 +76,7 @@ class BikeControl extends React.Component {
     });
   }
 
-  handleSellBikeClick = (id) => {
+  decrementBikeCount(id){
     const selectedBike = this.state.mainBikeList.filter(bike => bike.id === id)[0];
     const selectedBikeIndex = this.state.mainBikeList.indexOf(selectedBike);
     const otherBikes = this.state.mainBikeList.filter(bike => bike.id !== id);
@@ -82,6 +85,33 @@ class BikeControl extends React.Component {
     this.setState({
       mainBikeList: newMainBikeList
     });
+  }
+
+  handleSellBikeClick = (id) => {
+    this.decrementBikeCount(id);
+    const newBikesSoldCount = this.state.bikesSoldCount + 1;
+    this.setState({
+      bikesSoldCount: newBikesSoldCount 
+    });
+    console.log(this.state.bikesSoldCount);
+  }
+
+  handleScrapBikeClick = (id) => {
+    this.decrementBikeCount(id);
+    const newBikesScrappedCount = this.state.bikesScrappedCount + 1;
+    this.setState({
+      bikesScrappedCount: newBikesScrappedCount 
+    });
+    console.log(this.state.bikesScrappedCount);
+  }
+
+  handleGrantBikeClick = (id) => {
+    this.decrementBikeCount(id);
+    const newBikesGrantedCount = this.state.bikesGrantedCount + 1;
+    this.setState({
+      bikesGrantedCount: newBikesGrantedCount 
+    });
+    console.log(this.state.bikesGrantedCount);
   }
 
     //pass to Bike Detail
@@ -120,7 +150,7 @@ class BikeControl extends React.Component {
     } else if (this.state.visibleComponent === "NewBikeForm"){
       currentlyVisibleState = <NewBikeForm onNewBikeCreation = {this.handleAddingNewBikeToList} />
     } else {
-      currentlyVisibleState = <BikeList bikeList = {this.state.mainBikeList} onBikeSelection = {this.handleChangingSelectedBike} onIncrementBikeCountClicked = { this.handleIncrementBikeCountClick } onSellBikeClicked = { this.handleSellBikeClick } />
+      currentlyVisibleState = <BikeList bikeList = {this.state.mainBikeList} onBikeSelection = {this.handleChangingSelectedBike} onIncrementBikeCountClicked = { this.handleIncrementBikeCountClick } onSellBikeClicked = { this.handleSellBikeClick } onScrapBikeClicked = {this.handleScrapBikeClick} onGrantBikeClicked = {this.handleGrantBikeClick} />
     }
 
     return (
