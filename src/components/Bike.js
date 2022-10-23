@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from"prop-types";
-import bike from "./../img/bike.png";
+import bikeImg from "./../img/bike.png";
 
 function Bike(props){ 
   return(
@@ -12,7 +12,7 @@ function Bike(props){
             <div v-for="card in cards" class="flex flex-col md:flex-row overflow-hidden bg-white rounded-lg shadow-xl  mt-4 w-100 mx-2">
 
               <div class="h-64 w-auto md:w-1/2" style={{cursor:'pointer'}} onClick = {() => props.whenBikeClicked(props.id)}>
-                <img class="inset-0 h-full w-full object-cover object-center" src={bike} alt="black bike on a wooden floor against a white wall" />
+                <img class="inset-0 h-full w-full object-cover object-center" src={bikeImg} alt="black bike on a wooden floor against a white wall" />
               </div>
 
               <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
