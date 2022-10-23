@@ -16,7 +16,7 @@ function Bike(props){
     <p class="font-bold">Out of Stock! </p></div>
     buttonsOrWarning = <div id="buttonsOrWarningDiv"> <p className="mt-2">
     <button className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type='button'onClick = {() => props.whenIncrementBikeCountClicked(props.id)}>Add one!</button>
-  </p><div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3" role="alert"><p class="font-bold">There are no bikes to process. Please add more before trying scrap, sell, or grant. </p></div></div>
+  </p><div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3" role="alert"><p class="font-bold">There are no bikes to process. You cannot scrap, sell, or grant this bike size/type until more bikes are added. </p></div></div>
 
   } else if (props.count < 5){
     bikeCountWarning = <div class="bg-green-100 border-t border-b border-green-500 text-green-700 px-4 py-3" role="alert">
