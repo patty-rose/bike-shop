@@ -4,7 +4,9 @@ import BikeControl from "./BikeControl";
 function App(){
   return (
     <React.Fragment>
-      <BikeControl />
+      <div className="container">
+        <BikeControl />
+      </div>
     </React.Fragment>
   );
 }

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function BikeList(props){
   return (
     <React.Fragment>
-      <hr/>
+      
       {props.bikeList.map((bike) =>
         <Bike
           whenIncrementBikeCountClicked = { props.onIncrementBikeCountClicked }
