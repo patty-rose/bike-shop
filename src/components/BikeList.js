@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function BikeList(props){
   return (
     <React.Fragment>
-      
+        <h1 className="font-bold leading-relaxed uppercase text-center">Inventory</h1>
       {props.bikeList.map((bike) =>
         <Bike
           whenIncrementBikeCountClicked = { props.onIncrementBikeCountClicked }
