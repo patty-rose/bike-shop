@@ -4,6 +4,7 @@ import BikeList from "./BikeList";
 import NewBikeForm from "./NewBikeForm";
 import BikeDetail from "./BikeDetail";
 import EditBikeForm from "./EditBikeForm";
+import ProcessedStats from "./ProcessedStats";
 
 class BikeControl extends React.Component {
   //constructor with state
@@ -13,7 +14,7 @@ class BikeControl extends React.Component {
       mainBikeList: [],
       selectedBike: null,
       editing: false,
-      visibleComponent: null,
+      visibleComponent: "Stats",
       bikesSoldCount: 0,
       bikesGrantedCount: 0,
       bikesScrappedCount: 0
@@ -35,6 +36,15 @@ class BikeControl extends React.Component {
       editing: false,
       selectedBike: null
     });
+  }
+
+  handleTitleClick = () => {
+    this.setState({
+      visibleComponent: "Stats",
+      editing: false,
+      selectedBike: null
+    })
+    console.log(this.state);
   }
 
   //functions to pass as props:
@@ -158,7 +168,10 @@ class BikeControl extends React.Component {
 
   render(){
     let currentlyVisibleState = null;
-    if (this.state.editing) {
+    console.log(this.state);
+    if (this.state.visibleComponent === "Stats"){
+      currentlyVisibleState = <ProcessedStats grantedBikesCount = {this.state.bikesGrantedCount} soldBikesCount = {this.state.bikesSoldCount} scrappedBikesCount = {this.state.bikesScrappedCount} />
+    } else if (this.state.editing) {
       currentlyVisibleState = <EditBikeForm bike = {this.state.selectedBike} onEditBike = {this.handleEditingBikeInList} />
     } else if (this.state.selectedBike != null) {
       currentlyVisibleState = <BikeDetail bike = {this.state.selectedBike} onClickingDelete = {this.handleDeletingBike} onClickingEdit = {this.handleEditClick} />
@@ -170,7 +183,7 @@ class BikeControl extends React.Component {
 
     return (
       <React.Fragment>
-        <NavBar onAddBikeClick={this.handleAddBikeClick} onBikeListClick={this.handleBikeListClick} />
+        <NavBar onAddBikeClick={this.handleAddBikeClick} onBikeListClick={this.handleBikeListClick} onTitleClick = {this.handleTitleClick} />
         {currentlyVisibleState}
       </React.Fragment>
     );
