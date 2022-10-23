@@ -7,8 +7,8 @@
 
 # components diagram
 
-![app component layout](component-layout.png)
+![app component layout](src/img/component-layout.png)
 
-![inventory screenshot](list.png)
+![inventory screenshot](src/img/list.png)
 
-![add bike screenshot](form.png)
+![add bike screenshot](src/img/form.png)
