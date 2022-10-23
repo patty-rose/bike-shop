@@ -25,6 +25,8 @@ if (list.length === 0){
           size={bike.size}
           type={bike.type}
           count={bike.count}
+          outOfStock={bike.outOfStock}
+          lowStock={bike.lowStock}
           id={bike.id}
           key={bike.id}/>
       )}
