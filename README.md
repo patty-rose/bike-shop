@@ -13,14 +13,18 @@
 * _HTML_
 
 ## Description
-_A bike shop inventory tracker with full CRUD functionality and tailwindcss styling._
+_A bike shop inventory tracker with full CRUD functionality and tailwindcss styling. Can add bikes by size and type with a form. Then can select bikes to be granted, scrapped, or sold. Stats for how bikes are processed are displayed on a stats page which acts as the landing page and also is availabel when clicking on the "Bikes For Humanity" title in the navigation bar._
 
 # Components Diagram
 
 ![app component layout](src/img/component-layout.png)
 
+# Stats Page / Landing Page
+
+![app component layout](src/img/statsImg.png)
+
 # Inventory Page
-![inventory screenshot](src/img/list.png)
+![inventory screenshot](src/img/bikeList.png)
 
 # Add Bike Form Page
 ![add bike screenshot](src/img/form.png)

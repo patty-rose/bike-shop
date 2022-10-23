@@ -44,7 +44,6 @@ class BikeControl extends React.Component {
       editing: false,
       selectedBike: null
     })
-    console.log(this.state);
   }
 
   //functions to pass as props:
@@ -98,45 +97,27 @@ class BikeControl extends React.Component {
   }
 
   handleSellBikeClick = (id) => {
-    const selectedBike = this.state.mainBikeList.filter(bike => bike.id === id)[0];
-    if (selectedBike.count >= 1){
-      this.decrementBikeCount(id);
-      const newBikesSoldCount = this.state.bikesSoldCount + 1;
-      this.setState({
-        bikesSoldCount: newBikesSoldCount 
-      });
-      console.log(this.state.bikesSoldCount);
-    } else {
-      console.log("There are no bikes to process. Please add more before trying to process.");
-    }
+    this.decrementBikeCount(id);
+    const newBikesSoldCount = this.state.bikesSoldCount + 1;
+    this.setState({
+      bikesSoldCount: newBikesSoldCount 
+    });
   }
 
   handleScrapBikeClick = (id) => {
-    const selectedBike = this.state.mainBikeList.filter(bike => bike.id === id)[0];
-    if (selectedBike.count >= 1){
-      this.decrementBikeCount(id);
-      const newBikesScrappedCount = this.state.bikesScrappedCount + 1;
-      this.setState({
-        bikesScrappedCount: newBikesScrappedCount 
-      });
-      console.log(this.state.bikesScrappedCount);
-    } else {
-      console.log("There are no bikes to process. Please add more before trying to process.");
-    }
+    this.decrementBikeCount(id);
+    const newBikesScrappedCount = this.state.bikesScrappedCount + 1;
+    this.setState({
+      bikesScrappedCount: newBikesScrappedCount 
+    });
   }
 
   handleGrantBikeClick = (id) => {
-    const selectedBike = this.state.mainBikeList.filter(bike => bike.id === id)[0];
-    if (selectedBike.count >= 1){
-      this.decrementBikeCount(id);
-      const newBikesGrantedCount = this.state.bikesGrantedCount + 1;
-      this.setState({
-        bikesGrantedCount: newBikesGrantedCount 
-      });
-      console.log(this.state.bikesGrantedCount);
-    } else {
-      console.log("There are no bikes to process. Please add more before trying to process.");
-    }
+    this.decrementBikeCount(id);
+    const newBikesGrantedCount = this.state.bikesGrantedCount + 1;
+    this.setState({
+      bikesGrantedCount: newBikesGrantedCount 
+    });
   }
 
     //pass to Bike Detail
@@ -168,7 +149,6 @@ class BikeControl extends React.Component {
 
   render(){
     let currentlyVisibleState = null;
-    console.log(this.state);
     if (this.state.visibleComponent === "Stats"){
       currentlyVisibleState = <ProcessedStats grantedBikesCount = {this.state.bikesGrantedCount} soldBikesCount = {this.state.bikesSoldCount} scrappedBikesCount = {this.state.bikesScrappedCount} />
     } else if (this.state.editing) {
